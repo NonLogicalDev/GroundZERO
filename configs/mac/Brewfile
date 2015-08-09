@@ -1,0 +1,12 @@
+install cowsay
+install ack
+install colordiff
+install fortune
+install objective-caml
+install openssl
+install ctags
+install tree
+install wget
+install tmux
+install imagemagick
+install leiningen
