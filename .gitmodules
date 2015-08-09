@@ -1,0 +1,3 @@
+[submodule "scripts/dot"]
+	path = scripts/dot
+	url = https://github.com/NonLogicalDev/DotNinja.git

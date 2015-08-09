@@ -1,0 +1,6 @@
+# This is a Brewfile for phinze/homebrew-cask
+# Run `brew bundle Caskfile`
+
+# Developer Environment
+cask install macvim
+cask install iterm2
