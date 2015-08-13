@@ -1,0 +1,3 @@
+$the_cow = <<EOS;
+  $thoughts
+EOS

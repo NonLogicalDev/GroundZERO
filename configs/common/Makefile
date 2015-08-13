@@ -1,8 +1,7 @@
-.PHONY: install_bofh install_cowsay
+.PHONY: install.bofh install.cowsay
 
-install_bofh:
+install.bofh:
 
-
-install_cowsay:
+install.cowsay:
 
 

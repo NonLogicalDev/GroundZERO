@@ -1,12 +1,18 @@
-install cowsay
-install ack
-install colordiff
-install fortune
-install objective-caml
+# Essential Utilities
 install openssl
-install ctags
-install tree
 install wget
+install ack
+install tree
+
+# Usefull tools
 install tmux
+install ctags
 install imagemagick
+
+# Languages
+install objective-caml
 install leiningen
+
+# Stupid stuff
+install cowsay
+install fortune
