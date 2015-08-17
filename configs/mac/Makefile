@@ -30,7 +30,7 @@ brew.ensureBundle:
 	brew tap Homebrew/bundle
 
 brew.installUtils: brew.ensureBundle
-	brew bundle --file=Brewfile
+	brew bundle -v --file=Brewfile
 
 brew.installApps: brew.ensureBundle
-	brew bundle --file=Caskfile
+	brew bundle -v --file=Caskfile

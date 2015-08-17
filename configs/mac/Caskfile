@@ -2,6 +2,7 @@
 cask 'spotify'
 cask 'skype'
 cask 'flux'
+cask 'alfred'
 
 # Fonts
 cask 'font-dejavu-sans-mono-for-powerline'
@@ -21,7 +22,7 @@ cask 'iterm2'
 # QuickLook Enhancers
 cask 'betterzipql'
 cask 'suspicious-package'
-cask 'webp-quicklook'
+cask 'webpquicklook'
 cask 'qlcolorcode'
 cask 'qlmarkdown'
 cask 'qlprettypatch'
