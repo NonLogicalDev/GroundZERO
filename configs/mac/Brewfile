@@ -1,18 +1,18 @@
 # Essential Utilities
-install openssl
-install wget
-install ack
-install tree
+brew 'openssl'
+brew 'wget'
+brew 'ack'
+brew 'tree'
 
 # Usefull tools
-install tmux
-install ctags
-install imagemagick
+brew 'tmux'
+brew 'ctags'
+brew 'imagemagick'
 
 # Languages
-install objective-caml
-install leiningen
+brew 'objective-caml'
+brew 'leiningen'
 
 # Stupid stuff
-install cowsay
-install fortune
+brew 'cowsay'
+brew 'fortune'

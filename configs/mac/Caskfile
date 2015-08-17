@@ -1,33 +1,30 @@
-# This is a Brewfile for phinze/homebrew-cask
-# Run `brew bundle Caskfile`
-
 # Casual apps
-cask install spotify
-cask install skype
-cask install flux
+cask 'spotify'
+cask 'skype'
+cask 'flux'
 
 # Fonts
-cask install font-dejavu-sans-mono-for-powerline
+cask 'font-dejavu-sans-mono-for-powerline'
 
 # Browsers
-cask install google-chrome
-cask install firefox
+cask 'google-chrome'
+cask 'firefox'
 
 # Cloud Storage
-cask install dropbox
-cask install google-drive
+cask 'dropbox'
+cask 'google-drive'
 
 # Developer
-cask install macvim
-cask install iterm2
+cask 'macvim'
+cask 'iterm2'
 
 # QuickLook Enhancers
-cask install betterzipql
-cask install suspicious-package
-cask install webp-quicklook
-cask install qlcolorcode
-cask install qlmarkdown
-cask install qlprettypatch
-cask install qlstephen
-cask install quicklook-csv
-cask install quicklook-json
+cask 'betterzipql'
+cask 'suspicious-package'
+cask 'webp-quicklook'
+cask 'qlcolorcode'
+cask 'qlmarkdown'
+cask 'qlprettypatch'
+cask 'qlstephen'
+cask 'quicklook-csv'
+cask 'quicklook-json'
