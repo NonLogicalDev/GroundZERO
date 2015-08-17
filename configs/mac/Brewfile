@@ -2,6 +2,7 @@
 brew 'openssl'
 brew 'wget'
 brew 'ack'
+brew 'vim'
 brew 'tree'
 
 # Usefull tools

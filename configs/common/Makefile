@@ -1,3 +1,9 @@
+default:
+	echo Hello
+
+#######################################################################
+#                          Installing Stuff                           #
+#######################################################################
 .PHONY:  install.zprezto
 
 install.zprezto:
@@ -6,8 +12,11 @@ install.zprezto:
 install.vim.plugged:
 	bash scripts/install-plugged.sh
 
-.PHONY: install.bofh install.cowsay 
+#######################################################################
+#                           File Operations                           #
+#######################################################################
+.PHONY: put.bofh put.cowsay 
 
-install.bofh:
+put.bofh:
 
-install.cowsay:
+put.cowsay:
