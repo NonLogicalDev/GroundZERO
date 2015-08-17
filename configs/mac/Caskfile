@@ -3,6 +3,7 @@ cask 'spotify'
 cask 'skype'
 cask 'flux'
 cask 'alfred'
+cask 'spectacle'
 
 # Fonts
 cask 'font-dejavu-sans-mono-for-powerline'
