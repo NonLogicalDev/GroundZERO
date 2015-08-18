@@ -5,15 +5,15 @@
 	<key>background</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
-	ZmZmg5GY6z2DkZjrPYORmOs9g4/CdT+G
+	ZmZmg5ijgz2DSxmpPYMzpqw9g7UZUT+G
 	</data>
 	<key>border</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
-	ZmZmAAAAg7geBT6G
+	ZmZmAAAAgylcDz6G
 	</data>
 	<key>cornerRoundness</key>
-	<integer>2</integer>
+	<integer>3</integer>
 	<key>credits</key>
 	<string></string>
 	<key>imageStyle</key>
@@ -21,26 +21,26 @@
 	<key>name</key>
 	<string>SoftBlues</string>
 	<key>resultPaddingSize</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>resultSelectedBackgroundColor</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
-	ZmZmgxoXET6Dj5IrPoPa0jI+g9ejMD+G
+	ZmZmgx7tbD6DW9rYPoP35A4/g3XJaj6G
 	</data>
 	<key>resultSelectedSubtextColor</key>
 	<data>
-	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMChARm
-	ZmZmg5qZGT+DmpkZP4OamRk/AYY=
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAQEBgwAAAD+G
 	</data>
 	<key>resultSelectedTextColor</key>
 	<data>
-	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMChARm
-	ZmZmgzMzcz+DMzNzP4MzM3M/AYY=
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAQEBgzMzMz+G
 	</data>
 	<key>resultSubtextColor</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
-	ZmZmgzCu/j6DX1z9PoMAAAA/g9ej8D6G
+	ZmZmgzCu/j6DX1z9PoMAAAA/gzMzsz6G
 	</data>
 	<key>resultSubtextFont</key>
 	<string>Helvetica Neue</string>
@@ -49,7 +49,7 @@
 	<key>resultTextColor</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
-	ZmZmAQEBg1yPwj6G
+	ZmZmAQEBg83MzD6G
 	</data>
 	<key>resultTextFont</key>
 	<string>Helvetica Neue</string>
@@ -57,13 +57,13 @@
 	<integer>2</integer>
 	<key>scrollbarColor</key>
 	<data>
-	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMChARm
-	ZmZmg83MTD6DzcxMPoPNzEw+AYY=
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmgwDhuD6DAOG4PoMA4bg+AYY=
 	</data>
 	<key>searchBackgroundColor</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
-	ZmZmg9AKWz6DRehZPoNbLVw+AIY=
+	ZmZmgxdq7D2DC0RxPoMKHKQ+AIY=
 	</data>
 	<key>searchFont</key>
 	<string>Helvetica Neue</string>
@@ -72,10 +72,10 @@
 	<key>searchForegroundColor</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
-	ZmZmg3IcJD+DchwkP4NyHCQ/AYY=
+	ZmZmAQEBg5qZGT+G
 	</data>
 	<key>searchPaddingSize</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>searchSelectionBackgroundColor</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMChARm
@@ -88,8 +88,8 @@
 	</data>
 	<key>separatorColor</key>
 	<data>
-	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMChARm
-	ZmZmg83MTD6DzcxMPoPNzEw+AYY=
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAQEBgzN0YD2G
 	</data>
 	<key>shortcutColor</key>
 	<data>
@@ -106,7 +106,7 @@
 	ZmZmg/mVMz+DCB9GP4M4cEQ/AYY=
 	</data>
 	<key>uid</key>
-	<string>alfred.theme.custom.7B2EE5B5-EE68-4FCC-9888-4223BC2AA1DD</string>
+	<string>alfred.theme.custom.70E88C7B-D523-402E-AA0A-CCF8A44402A5</string>
 	<key>widthSize</key>
 	<integer>4</integer>
 </dict>
