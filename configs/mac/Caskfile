@@ -4,9 +4,11 @@ cask 'skype'
 cask 'flux'
 cask 'alfred'
 cask 'spectacle'
+cask 'karabiner'
+cask 'bartender'
 
 # Fonts
-cask 'font-dejavu-sans-mono-for-powerline'
+#cask 'font-dejavu-sans-mono-for-powerline'
 
 # Browsers
 cask 'google-chrome'

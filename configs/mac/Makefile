@@ -24,7 +24,7 @@ osx.cleanUpDuplicates:
 #                             Brew Tasks                              #
 #######################################################################
 
-.PHONY: brew.install brew.ensureBundle brew.installUtils brew.installApps
+.PHONY: brew.install brew.ensureBundle brew.ensureMas brew.installUtils brew.installApps
 
 brew.install:
 	bash scripts/install-brew.sh
