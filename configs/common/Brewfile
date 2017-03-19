@@ -17,3 +17,12 @@ brew 'leiningen'
 # Stupid stuff
 brew 'cowsay'
 brew 'fortune'
+
+# Source managers
+brew 'rbenv'
+brew 'nvm'
+brew 'jenv'
+brew 'pyenv-virtualenv'
+
+# My favourite text editor
+brew 'neovim/neovim/neovim'

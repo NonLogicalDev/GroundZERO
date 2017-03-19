@@ -3,32 +3,26 @@ set -e
 source ../common/scripts/@common.sh
 
 ######################################################################
-##### Variables:
-
-INSTALL_CL=/usr/bin/xcode-select
-
-######################################################################
 ##### Entry Point:
 
 function main {
   echo "]]] ((((((( START )))))))"
   mkdir -p $BOOTSTRAPD
 
+  # Minimum necesseary bootstrap for ubuntu
+  bootstrap_ubuntu
+
   # Package managers and dev support
-  prep_cl_tools
-  prep_homebrew
+  prep_linuxbrew
 
   # Dotfiles and misc configuration
   fetch_config_repo
   set_up_dev_env
   set_up_dotfiles
 
-  # Mac Specific dev environment
-  gain_osx_superpowers
-
-  # Setup Apps and Utilities
+  # Setup Utilities
   install_utils
-  install_apps
+  finish_bootstrap
 
   echo "]]] ((((((( END  )))))))"
 }
@@ -36,21 +30,25 @@ function main {
 ######################################################################
 ##### Confugurator Modules:
 
-function prep_cl_tools {
-  describe "Configuring Commandline Tools so that this script will work...."
-  if (($(status $INSTALL_CL -p) != 0)); then
-    info "< Installing Command Line Tools...."
-    $ISNTALL_CL --install
-  else
-    warn "< Command Line tools already installed"
-  fi
+function bootstrap_ubuntu {
+  describe "Bootstrapping(ensuring the apt dendencies are installed)..."
+  sudo apt install \
+    git \
+    build-essential \
+    python-setuptools \
+    ruby \
+    file \
+    curl \
+    wget
 }
 
-function prep_homebrew {
+function prep_linuxbrew {
   describe "Configuring Brew...."
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
   if ! exists brew; then
     info "< Installing brew...."
-    $RUBY -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    $RUBY -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+    echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' >>~/.bash_profile
   else
     warn "< Brew already exists"
   fi
@@ -117,26 +115,6 @@ function set_up_dotfiles {
   fi
 }
 
-function gain_osx_superpowers {
-  describe "Configuring OSX Superpowers..."
-
-  if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
-    error "Ground ZERO is missing"
-  fi
-
-  if [[ ! -a $BOOTSTRAPD/superpowers_stat ]]; then
-    pushd $GROUNDZERO_REPO_PATH
-      info "< Attaining Superpowers..."
-      make -C configs/mac osx.enableSuperpowers
-      info "< Setting up screen capture..."
-      make -C configs/mac osx.setUpScreencapture
-      touch $BOOTSTRAPD/superpowers_stat
-    popd
-  else
-    warn "You already have superpowers"
-  fi
-}
-
 function install_utils {
   describe "Attempting to install Utils..."
 
@@ -150,34 +128,15 @@ function install_utils {
   popd
 }
 
-function install_apps {
-  describe "Attempting to install simple Apps..."
+function finish_bootstrap {
+  describe "Installing last components after environment is finally setup"
 
-  if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
-    error "Ground ZERO is missing"
-  fi
+  pip install neovim
 
-  pushd $GROUNDZERO_REPO_PATH
-    info "< Installing Utils..."
-    make -C configs/mac brew.installApps || true
-  popd
+  eval "$(rbenv init -)"
+  gem instal neovim
+  gem instal lolcat
 }
-
-############################################################
-# Currently Impossible...
-############################################################
-# function install_mas_apps {
-#   describe "Attempting to install App Store Apps..."
-#
-#   if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
-#     error "Ground ZERO is missing"
-#   fi
-#
-#   pushd $GROUNDZERO_REPO_PATH
-#     info "< Installing Utils..."
-#     make -C configs/mac mas.installApps || true
-#   popd
-# }
 
 ######################################################################
 main $@

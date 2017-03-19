@@ -24,16 +24,10 @@ osx.cleanUpDuplicates:
 #                             Brew Tasks                              #
 #######################################################################
 
-.PHONY: brew.install brew.ensureBundle brew.ensureMas brew.installUtils brew.installApps
-
-brew.install:
-	bash scripts/install-brew.sh
+.PHONY: brew.ensureBundle brew.installApps
 
 brew.ensureBundle:
 	brew tap Homebrew/bundle
-
-brew.installUtils: brew.ensureBundle
-	brew bundle -v --file=Brewfile
 
 brew.installApps: brew.ensureBundle
 	brew bundle -v --file=Caskfile
