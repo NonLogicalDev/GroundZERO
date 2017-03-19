@@ -20,3 +20,15 @@ install.vim.plugged:
 put.bofh:
 
 put.cowsay:
+
+#######################################################################
+#                             Brew Tasks                              #
+#######################################################################
+
+.PHONY: brew.ensureBundle brew.installUtils
+
+brew.ensureBundle:
+	brew tap Homebrew/bundle
+
+brew.installUtils: brew.ensureBundle
+	brew bundle -v --file=Brewfile
