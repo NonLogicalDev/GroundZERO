@@ -14,6 +14,7 @@ function main {
 
   # Package managers and dev support
   prep_linuxbrew
+  finilize_brew
 
   # Dotfiles and misc configuration
   fetch_config_repo
@@ -22,7 +23,6 @@ function main {
 
   # Setup Utilities
   install_utils
-  finish_bootstrap
 
   echo "]]] ((((((( END  )))))))"
 }
@@ -52,6 +52,32 @@ function prep_linuxbrew {
   else
     warn "< Brew already exists"
   fi
+}
+
+function finilize_brew {
+  describe "Install developer essentials from brew..."
+ 
+  # Insall version managers
+  # <<< Java
+  brew install jenv
+  # <<< NodeJS
+  brew install nvm
+  mkdir ~/.nvm
+  nvm install v7.7.3
+  nvm use v7.7.3
+  nvm alias default v7.7.3
+  # <<< Ruby
+  brew install rbenv
+  eval "$(rbenv init -)"
+  rbenv install -v 2.4.0
+  rbenv global 2.4.0
+
+  # Neovim integrations
+  pip install neovim
+  gem instal neovim
+
+  # misc
+  gem instal lolcat
 }
 
 function fetch_config_repo {
@@ -126,16 +152,6 @@ function install_utils {
     info "< Installing Utils..."
     make -C configs/common brew.installUtils || true
   popd
-}
-
-function finish_bootstrap {
-  describe "Installing last components after environment is finally setup"
-
-  pip install neovim
-
-  eval "$(rbenv init -)"
-  gem instal neovim
-  gem instal lolcat
 }
 
 ######################################################################
