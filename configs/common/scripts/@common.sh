@@ -16,6 +16,7 @@ function common__finilize_post_brew {
   brew install jenv
   # <<< NodeJS
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+  source ~/.bashrc
   nvm install v7.7.3
   nvm use v7.7.3
   nvm alias default v7.7.3
