@@ -37,6 +37,13 @@ function common__finilize_post_brew {
   rbenv install -v 2.4.0
   rbenv global 2.4.0
 
+  # <<< Python
+  describe "Setting up Python Version Manager..."
+  brew install pyenv
+  eval "$(pyenv init -)"
+  pyenv install -v 2.7.13
+  pyenv global 2.7.13
+
   # Neovim integrations
   pip install neovim
   gem instal neovim
