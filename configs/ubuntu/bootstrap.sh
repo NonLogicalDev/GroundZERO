@@ -45,9 +45,11 @@ function main {
 
 function ubuntu__bootstrap {
   echo "!!! Bootstrapping Ubuntu..."
-  sudo apt install \
+  sudo apt install -y \
     git \
     build-essential \
+    libreadline-dev \
+    zlib1g-dev \
     python-setuptools \
     ruby \
     file \
@@ -64,6 +66,7 @@ function ubuntu__bootstrap {
   if [[ -a $GROUNDZERO_REPO_PATH ]]; then
     echo "!!! < Updating Ground ZERO submodules..."
     pushd $GROUNDZERO_REPO_PATH
+      git checkout staging
       git submodule update --init --recursive
     popd
   else

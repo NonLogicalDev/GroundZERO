@@ -12,15 +12,26 @@ function common__finilize_post_brew {
   describe "Install developer essentials from brew..."
  
   # Insall version managers
+
   # <<< Java
+  describe "Setting up Java Version Manager..."
   brew install jenv
+
   # <<< NodeJS
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+  describe "Setting up Node Version Manager..."
+  if [[ ! -a ~/.nvm/nvm.sh ]]; then
+    info "< Downloading NVM..."
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+  else
+    warn "< NVM Already Downloaded"
+  fi
   source ~/.bashrc
   nvm install v7.7.3
   nvm use v7.7.3
   nvm alias default v7.7.3
+
   # <<< Ruby
+  describe "Setting up Ruby Version Manager..."
   brew install rbenv
   eval "$(rbenv init -)"
   rbenv install -v 2.4.0
