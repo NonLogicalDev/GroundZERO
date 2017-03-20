@@ -1,11 +1,20 @@
 #!/bin/bash
 set -e
-source ../common/scripts/@common.sh
 
 ######################################################################
-##### Variables:
+##### Configuration Variables:
 
+# Commands
+RUBY=/usr/bin/ruby
 INSTALL_CL=/usr/bin/xcode-select
+
+# Locations
+GROUNDZERO_REPO_URL=https://github.com/NonLogicalDev/GroundZERO
+GROUNDZERO_REPO_PATH=$HOME/.groundzero
+GROUNDZERO_CONFIG_DIR=$GROUNDZERO_REPO_PATH/configs
+
+BOOTSTRAPD=$HOME/.__bootstrap
+######################################################################
 
 ######################################################################
 ##### Entry Point:
@@ -17,10 +26,15 @@ function main {
   # Package managers and dev support
   mac__bootstrap
   mac__prep_homebrew
+
+  # Get the actual repo and load common modules
+  fetch_config_repo
+  source $GROUNDZERO_CONFIG_DIR/common/scripts/@common.sh
+
+  # Finish setting up bootstrap environment
   common__finilize_post_brew
 
   # Dotfiles and misc configuration
-  common__fetch_config_repo
   common__set_up_dev_env
   common__set_up_dotfiles
 
@@ -36,6 +50,24 @@ function main {
 
 ######################################################################
 ##### Confugurator Modules:
+
+function fetch_config_repo {
+  describe "Configuring Ground ZERO..."
+  if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
+    info "< Cloning Ground ZERO repo into $GROUNDZERO_REPO_PATH..."
+    git clone $GROUNDZERO_REPO_URL $GROUNDZERO_REPO_PATH
+  else
+    warn "< Ground ZERO is already set up"
+  fi
+  if [[ -a $GROUNDZERO_REPO_PATH ]]; then
+    info "< Updating Ground ZERO submodules..."
+    pushd $GROUNDZERO_REPO_PATH
+      git submodule update --init --recursive
+    popd
+  else
+    error "< Ground ZERO is missing, even though it was just pulled, there be BLACK MAGIC ROUND THIS BEND!!!"
+  fi
+}
 
 function mac__bootstrap {
   describe "Configuring Commandline Tools so that this script will work...."

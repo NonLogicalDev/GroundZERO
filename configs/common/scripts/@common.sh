@@ -1,17 +1,3 @@
-set -e
-
-######################################################################
-##### Configuration Variables:
-
-# Commands
-RUBY=/usr/bin/ruby
-
-# Locations
-GROUNDZERO_REPO_URL=https://github.com/NonLogicalDev/GroundZERO
-GROUNDZERO_REPO_PATH=$HOME/.groundzero
-
-BOOTSTRAPD=$HOME/.__bootstrap
-######################################################################
 
 # Ask for the administrator password upfront
 sudo -v
@@ -46,24 +32,6 @@ function common__finilize_post_brew {
 
   # misc
   gem instal lolcat
-}
-
-function common__fetch_config_repo {
-  describe "Configuring Ground ZERO..."
-  if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
-    info "< Cloning Ground ZERO repo into $GROUNDZERO_REPO_PATH..."
-    git clone $GROUNDZERO_REPO_URL $GROUNDZERO_REPO_PATH
-  else
-    warn "< Ground ZERO is already set up"
-  fi
-  if [[ -a $GROUNDZERO_REPO_PATH ]]; then
-    info "< Updating Ground ZERO submodules..."
-    pushd $GROUNDZERO_REPO_PATH
-      git submodule update --init --recursive
-    popd
-  else
-    error "< Ground ZERO is missing, even though it was just pulled, there be BLACK MAGIC ROUND THIS BEND!!!"
-  fi
 }
 
 function common__set_up_dev_env {
