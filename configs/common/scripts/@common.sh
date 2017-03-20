@@ -91,7 +91,7 @@ function common__set_up_dotfiles {
   if [[ -a $GROUNDZERO_REPO_PATH ]]; then
     info "< Running Ground ZERO dotninja..."
     pushd $GROUNDZERO_REPO_PATH
-      scripts/dot/dotninja link
+      scripts/dot/dotninja link -f
     popd
   else
     error "< Ground ZERO is missing, can't run install dotfiles"
