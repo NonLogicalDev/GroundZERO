@@ -1,9 +1,13 @@
 
 # Ask for the administrator password upfront
-sudo -v
+sudo echo HI SUDO ACTIVATED
 
 # Keep-alive: update existing `sudo` time stamp until script is finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do \
+  sudo -n true; \
+  sleep 60; \
+  kill -0 "$$" || exit; \
+done 2>/dev/null &
 
 ######################################################################
 ##### Common Configuration Modules:
