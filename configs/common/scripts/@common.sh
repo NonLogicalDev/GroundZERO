@@ -25,7 +25,7 @@ function common__finilize_post_brew {
   else
     warn "< NVM Already Downloaded"
   fi
-  source ~/.bashrc
+  source ~/.nvm/nvm.sh
   nvm install v7.7.3
   nvm use v7.7.3
   nvm alias default v7.7.3
@@ -75,7 +75,7 @@ function common__set_up_dotfiles {
   describe "Configuring dotfiles..."
 
   if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
-    error "Ground ZERO is missing"
+    error "Ground ZERO is missing
   fi
 
   if [[ -a $GROUNDZERO_REPO_PATH ]]; then
