@@ -91,7 +91,7 @@ function ubuntu__prep_linuxbrew {
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   if ! exists brew; then
     info "< Installing brew...."
-    $RUBY -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+    printf "\n" | $RUBY -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
     echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' >> ~/.bashrc
   else
     warn "< Brew already exists"
