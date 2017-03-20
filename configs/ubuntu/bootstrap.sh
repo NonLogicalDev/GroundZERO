@@ -61,7 +61,11 @@ function ubuntu__bootstrap {
     ruby \
     file \
     curl \
-    wget
+    wget \
+    zsh
+
+  echo "!!! Installing Perl Dependencies..."
+  cpan Text::Glob
 
   echo "!!! Configuring Ground ZERO..."
   if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then

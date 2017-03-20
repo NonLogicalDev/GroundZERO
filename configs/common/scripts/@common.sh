@@ -11,7 +11,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 function common__finilize_post_brew {
   describe "Install developer essentials from brew..."
   NODE_VERSION="v7.7.3"
-  RUBY_VERSION="2.3.0"
+  RUBY_VERSION="2.4.0"
   PYTHON_VERSION="2.7.13"
  
   # Insall version managers
