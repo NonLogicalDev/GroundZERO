@@ -77,7 +77,6 @@ function ubuntu__bootstrap {
   if [[ -a $GROUNDZERO_REPO_PATH ]]; then
     echo "!!! < Updating Ground ZERO submodules..."
     pushd $GROUNDZERO_REPO_PATH
-      git checkout staging
       git submodule update --init --recursive
     popd
   else
