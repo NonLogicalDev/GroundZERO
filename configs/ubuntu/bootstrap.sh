@@ -24,13 +24,10 @@ function main {
 
   # Minimum necesseary bootstrap for ubuntu
   ubuntu__bootstrap
-  ubuntu__prep_linuxbrew
-
-  # Get the actual repo and load common modules
-  fetch_config_repo
   source $GROUNDZERO_CONFIG_DIR/common/scripts/@common.sh
 
   # Finish setting up bootstrap environment
+  ubuntu__prep_linuxbrew
   common__finilize_post_brew
 
   # Dotfiles and misc configuration
@@ -46,27 +43,8 @@ function main {
 ######################################################################
 ##### Confugurator Modules:
 
-function fetch_config_repo {
-  describe "Configuring Ground ZERO..."
-  if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
-    info "< Cloning Ground ZERO repo into $GROUNDZERO_REPO_PATH..."
-    git clone $GROUNDZERO_REPO_URL $GROUNDZERO_REPO_PATH
-  else
-    warn "< Ground ZERO is already set up"
-  fi
-  if [[ -a $GROUNDZERO_REPO_PATH ]]; then
-    info "< Updating Ground ZERO submodules..."
-    pushd $GROUNDZERO_REPO_PATH
-      git submodule update --init --recursive
-    popd
-  else
-    error "< Ground ZERO is missing, even though it was just pulled, there be BLACK MAGIC ROUND THIS BEND!!!"
-  fi
-}
-
-
-function ubuntu__bootstrap {
-  describe "Bootstrapping(ensuring the apt dendencies are installed)..."
+function ubuntu__boostrap {
+  echo "!!! Bootstrapping Ubuntu..."
   sudo apt install \
     git \
     build-essential \
@@ -75,6 +53,23 @@ function ubuntu__bootstrap {
     file \
     curl \
     wget
+
+  echo "!!! Configuring Ground ZERO..."
+  if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
+    echo "!!! < Cloning Ground ZERO repo into $GROUNDZERO_REPO_PATH..."
+    git clone $GROUNDZERO_REPO_URL $GROUNDZERO_REPO_PATH
+  else
+    echo "!!! < Ground ZERO is already set up"
+  fi
+  if [[ -a $GROUNDZERO_REPO_PATH ]]; then
+    echo "!!! < Updating Ground ZERO submodules..."
+    pushd $GROUNDZERO_REPO_PATH
+      git submodule update --init --recursive
+    popd
+  else
+    echo "!!! < Ground ZERO is missing, even though it was just pulled, there be BLACK MAGIC ROUND THIS BEND!!!"
+    exit 1
+  fi
 }
 
 function ubuntu__prep_linuxbrew {

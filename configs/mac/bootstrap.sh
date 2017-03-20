@@ -23,15 +23,12 @@ function main {
   echo "]]] ((((((( START )))))))"
   mkdir -p $BOOTSTRAPD
 
-  # Package managers and dev support
+  # Minimum necesseary bootstrap for mac
   mac__bootstrap
-  mac__prep_homebrew
-
-  # Get the actual repo and load common modules
-  fetch_config_repo
   source $GROUNDZERO_CONFIG_DIR/common/scripts/@common.sh
 
   # Finish setting up bootstrap environment
+  mac__prep_homebrew
   common__finilize_post_brew
 
   # Dotfiles and misc configuration
@@ -51,31 +48,39 @@ function main {
 ######################################################################
 ##### Confugurator Modules:
 
-function fetch_config_repo {
-  describe "Configuring Ground ZERO..."
+# Annoyingly enough this command is needed in the bootstrap so I had
+# to take it out of common library
+function __status {
+  local status=0
+  $@ >/dev/null 2>/dev/null || status=$?
+  echo $status
+}
+
+function mac__boostrap {
+  echo "!!! Bootstrapping Mac..."
+  echo "!!! Configuring Commandline Tools so that this script will work...."
+  if (($(__status $INSTALL_CL -p) != 0)); then
+    echo "!!! < Installing Command Line Tools...."
+    $ISNTALL_CL --install
+  else
+    echo "!!! < Command Line tools already installed"
+  fi
+
+  echo "!!! Configuring Ground ZERO..."
   if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
-    info "< Cloning Ground ZERO repo into $GROUNDZERO_REPO_PATH..."
+    echo "!!! < Cloning Ground ZERO repo into $GROUNDZERO_REPO_PATH..."
     git clone $GROUNDZERO_REPO_URL $GROUNDZERO_REPO_PATH
   else
-    warn "< Ground ZERO is already set up"
+    echo "!!! < Ground ZERO is already set up"
   fi
   if [[ -a $GROUNDZERO_REPO_PATH ]]; then
-    info "< Updating Ground ZERO submodules..."
+    echo "!!! < Updating Ground ZERO submodules..."
     pushd $GROUNDZERO_REPO_PATH
       git submodule update --init --recursive
     popd
   else
-    error "< Ground ZERO is missing, even though it was just pulled, there be BLACK MAGIC ROUND THIS BEND!!!"
-  fi
-}
-
-function mac__bootstrap {
-  describe "Configuring Commandline Tools so that this script will work...."
-  if (($(status $INSTALL_CL -p) != 0)); then
-    info "< Installing Command Line Tools...."
-    $ISNTALL_CL --install
-  else
-    warn "< Command Line tools already installed"
+    echo "!!! < Ground ZERO is missing, even though it was just pulled, there be BLACK MAGIC ROUND THIS BEND!!!"
+    exit 1
   fi
 }
 
