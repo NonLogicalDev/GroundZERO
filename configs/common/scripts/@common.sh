@@ -75,7 +75,7 @@ function common__set_up_dotfiles {
   describe "Configuring dotfiles..."
 
   if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
-    error "Ground ZERO is missing
+    error "Ground ZERO is missing"
   fi
 
   if [[ -a $GROUNDZERO_REPO_PATH ]]; then
