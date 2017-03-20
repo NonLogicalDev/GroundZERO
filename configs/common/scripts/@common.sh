@@ -37,14 +37,18 @@ function common__finilize_post_brew {
   describe "Setting up Ruby Version Manager..."
   brew install rbenv
   eval "$(rbenv init -)"
-  rbenv install -v $RUBY_VERSION
+  if [[ -z "$(rbenv versions | grep $RUBY_VERSION)" ]]; then
+    rbenv install -v $RUBY_VERSION
+  fi
   rbenv global $RUBY_VERSION
 
   # <<< Python
   describe "Setting up Python Version Manager..."
   brew install pyenv
   eval "$(pyenv init -)"
-  pyenv install -v $PYTHON_VERSION
+  if [[ -z "$(pyenv versions | grep $PYTHON_VERSION)" ]]; then
+    pyenv install -v $PYTHON_VERSION
+  fi
   pyenv global $PYTHON_VERSION
 
   # Neovim integrations
