@@ -25,4 +25,5 @@ brew 'jenv'
 brew 'pyenv-virtualenv'
 
 # My favourite text editor
-brew 'neovim/neovim/neovim'
+tap 'neovim/neovim'
+brew 'neovim'

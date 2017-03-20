@@ -58,6 +58,7 @@ function common__finilize_post_brew {
   # Neovim integrations
   pip install neovim
   gem instal neovim
+  ln -s ~/.vim ~/.config/nvim
 
   # misc
   gem instal lolcat
