@@ -10,6 +10,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 function common__finilize_post_brew {
   describe "Install developer essentials from brew..."
+  NODE_VERSION="v7.7.3"
+  RUBY_VERSION="2.3.0"
+  PYTHON_VERSION="2.7.13"
  
   # Insall version managers
 
@@ -26,23 +29,23 @@ function common__finilize_post_brew {
     warn "< NVM Already Downloaded"
   fi
   source ~/.nvm/nvm.sh
-  nvm install v7.7.3
-  nvm use v7.7.3
-  nvm alias default v7.7.3
+  nvm install $NODE_VERSION
+  nvm use $NODE_VERSION
+  nvm alias default $NODE_VERSION
 
   # <<< Ruby
   describe "Setting up Ruby Version Manager..."
   brew install rbenv
   eval "$(rbenv init -)"
-  rbenv install -v 2.4.0
-  rbenv global 2.4.0
+  rbenv install -v $RUBY_VERSION
+  rbenv global $RUBY_VERSION
 
   # <<< Python
   describe "Setting up Python Version Manager..."
   brew install pyenv
   eval "$(pyenv init -)"
-  pyenv install -v 2.7.13
-  pyenv global 2.7.13
+  pyenv install -v $PYTHON_VERSION
+  pyenv global $PYTHON_VERSION
 
   # Neovim integrations
   pip install neovim
