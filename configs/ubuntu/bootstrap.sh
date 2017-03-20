@@ -43,7 +43,7 @@ function main {
 ######################################################################
 ##### Confugurator Modules:
 
-function ubuntu__boostrap {
+function ubuntu__bootstrap {
   echo "!!! Bootstrapping Ubuntu..."
   sudo apt install \
     git \
