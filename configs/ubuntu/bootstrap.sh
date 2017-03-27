@@ -64,8 +64,9 @@ function ubuntu__bootstrap {
     wget \
     zsh
 
-  echo "!!! Installing Perl Dependencies..."
-  printf "\nsudo\n" | sudo cpan Text::Glob
+  # >>> NO LONGER NEEDED AS I DONT USE TEXT GLOB ANYMORE
+  # echo "!!! Installing Perl Dependencies..."
+  # printf "\nsudo\n" | sudo cpan Text::Glob
 
   echo "!!! Configuring Ground ZERO..."
   if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
