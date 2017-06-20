@@ -1,3 +1,5 @@
 #!/bin/bash
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+RUBY=/usr/bin/ruby
+
+$RUBY -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

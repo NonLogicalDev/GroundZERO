@@ -4,9 +4,6 @@ set -e
 ######################################################################
 ##### Configuration Variables:
 
-# Commands
-RUBY=/usr/bin/ruby
-
 # Locations
 GROUNDZERO_REPO_URL=https://github.com/NonLogicalDev/GroundZERO
 GROUNDZERO_REPO_PATH=$HOME/.groundzero
@@ -24,7 +21,7 @@ function main {
 
   # Minimum necesseary bootstrap for ubuntu
   ubuntu__bootstrap
-  source $GROUNDZERO_CONFIG_DIR/common/scripts/@common.sh
+  source $GROUNDZERO_CONFIG_DIR/common/bootstrap.sh
 
   # Finish setting up bootstrap environment
   ubuntu__prep_linuxbrew
@@ -64,10 +61,6 @@ function ubuntu__bootstrap {
     wget \
     zsh
 
-  # >>> NO LONGER NEEDED AS I DONT USE TEXT GLOB ANYMORE
-  # echo "!!! Installing Perl Dependencies..."
-  # printf "\nsudo\n" | sudo cpan Text::Glob
-
   echo "!!! Configuring Ground ZERO..."
   if [[ ! -a $GROUNDZERO_REPO_PATH ]]; then
     echo "!!! < Cloning Ground ZERO repo into $GROUNDZERO_REPO_PATH..."
@@ -91,8 +84,7 @@ function ubuntu__prep_linuxbrew {
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   if ! exists brew; then
     info "< Installing brew...."
-    printf "\n" | $RUBY -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-    echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' >> ~/.bashrc
+    make -C config/ubuntu install.brew
   else
     warn "< Brew already exists"
   fi

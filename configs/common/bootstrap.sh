@@ -55,6 +55,10 @@ function common__finilize_post_brew {
   fi
   pyenv global $PYTHON_VERSION
 
+  # <<< Lua
+  describe "Setting up Lua/Luarocks..."
+  brew install lua
+
   # Neovim integrations
   pip install neovim
   gem instal neovim

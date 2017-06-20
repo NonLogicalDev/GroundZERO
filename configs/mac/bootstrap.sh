@@ -5,7 +5,6 @@ set -e
 ##### Configuration Variables:
 
 # Commands
-RUBY=/usr/bin/ruby
 INSTALL_CL=/usr/bin/xcode-select
 
 # Locations
@@ -25,7 +24,7 @@ function main {
 
   # Minimum necesseary bootstrap for mac
   mac__bootstrap
-  source $GROUNDZERO_CONFIG_DIR/common/scripts/@common.sh
+  source $GROUNDZERO_CONFIG_DIR/common/bootstrap.sh
 
   # Finish setting up bootstrap environment
   mac__prep_homebrew
@@ -88,7 +87,7 @@ function mac__prep_homebrew {
   describe "Configuring Brew...."
   if ! exists brew; then
     info "< Installing brew...."
-    $RUBY -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    make -C config/mac install.brew
   else
     warn "< Brew already exists"
   fi

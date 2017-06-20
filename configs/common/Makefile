@@ -4,22 +4,13 @@ default:
 #######################################################################
 #                          Installing Stuff                           #
 #######################################################################
-.PHONY:  install.zprezto
+.PHONY: install.zprezto install.vim.plugged
 
 install.zprezto:
 	bash scripts/install-zprezto.sh
 
 install.vim.plugged:
 	bash scripts/install-plugged.sh
-
-#######################################################################
-#                           File Operations                           #
-#######################################################################
-.PHONY: put.bofh put.cowsay 
-
-put.bofh:
-
-put.cowsay:
 
 #######################################################################
 #                             Brew Tasks                              #
