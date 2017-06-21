@@ -27,3 +27,7 @@ brew 'pyenv-virtualenv'
 # My favourite text editor
 tap 'neovim/neovim'
 brew 'neovim'
+
+# Vim Based Explorers
+brew 'vifm'
+brew 'tig'
