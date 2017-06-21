@@ -6,6 +6,7 @@ cask 'alfred'
 cask 'spectacle'
 cask 'karabiner'
 cask 'bartender'
+cask 'hammerspoon'
 
 # Fonts
 #cask 'font-dejavu-sans-mono-for-powerline'
