@@ -20,11 +20,11 @@ function get_platform() {
 function install_cl_tools() {
   touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
   PROD=$(softwareupdate -l |
-    grep "\*.*Command Line" |
-    head -n 1 | awk -F"*" '{print $2}' |
-    sed -e 's/^ *//' |
-    tr -d '\n')
-  softwareupdate -i "$PROD" -v;
+    grep -B 1 -E 'Command Line Tools' |
+    awk -F'*' '/^ +\*/ {print $2}' |
+    sed 's/^ *//' |
+    head -n1)
+  softwareupdate -i "$PROD" -v
 }
 
 function install_homebrew() {
