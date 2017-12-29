@@ -17,49 +17,43 @@ function get_platform() {
   fi
 }
 
-function install_cl_tools() {
-  touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
-  PROD=$(softwareupdate -l |
-    grep -B 1 -E 'Command Line Tools' |
-    awk -F'*' '/^ +\*/ {print $2}' |
-    sed 's/^ *//' |
-    head -n1)
-  softwareupdate -i "$PROD" -v
-}
+function main() {
+  if [[ "$(get_platform)" == "MAC" ]]; then
+    # Install developer tools
+    if ! $(pkgutil --pkgs | grep "CLTools" -q) ; then
+      echo "Info   | Install   | xcode";
 
-function install_homebrew() {
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
-}
+      touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
+    fi 
 
-function install_ansible() {
-  brew update;
-  brew install ansible;
-}
+    echo "Info   | Update   | xcode";
+    local PROD=$(softwareupdate -l | grep -E '\* Command Line Tools' | perl -pe 's/.*\* //g');
+    echo "$PROD" | xargs -I {} softwareupdate -i "{}" --verbose;
 
-if [[ "$(get_platform)" == "MAC" ]]; then
-  # Install developer tools
-  if ! $(pkgutil --pkgs | grep "CLTools" -q) ; then
-    echo "Info   | Install   | xcode";
-    install_cl_tools;
+    # Download and install Homebrew
+    if [[ ! -x /usr/local/bin/brew ]]; then
+      echo "Info   | Install   | homebrew";
+
+      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
+    fi
+
+    # Download and install Ansible
+    if [[ ! -x /usr/local/bin/ansible ]]; then
+      echo "Info   | Install   | Ansible";
+
+      brew update;
+      brew install ansible;
+    fi
+
+    BOOTSTRAP_READY="yes";
   fi
 
-  # Download and install Homebrew
-  if [[ ! -x /usr/local/bin/brew ]]; then
-    echo "Info   | Install   | homebrew";
-    install_homebrew;
+  if [[ $BOOTSTRAP_READY == "yes" ]]; then
+    git clone https://github.com/NonLogicalDev/GroundZERO $GZ_LOC;
+  else
+    echo "Error  | Bootstrap Failed"
   fi
+}
 
-  # Download and install Ansible
-  if [[ ! -x /usr/local/bin/ansible ]]; then
-    echo "Info   | Install   | Ansible";
-    install_ansible;
-  fi
-
-  BOOTSTRAP_READY="yes"
-fi
-
-if [[ $BOOTSTRAP_READY == "yes" ]]; then
-  git clone https://github.com/NonLogicalDev/GroundZERO $GZ_LOC;
-else
-  echo "Error  | Bootstrap Failed" > &2
-fi
+####
+main

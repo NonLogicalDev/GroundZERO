@@ -1,2 +1,2 @@
 provision:
-	ansible-playbook -i "localhost," ~/.groundzero/playbooks/@provision.yml
+	ansible-playbook -i "localhost," @provision.yml
