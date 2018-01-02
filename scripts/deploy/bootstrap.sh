@@ -2,7 +2,7 @@
 set -e
 set -x
 
-GZ_LOC="$HOME/.groundzero_test"
+GZ_LOC="$HOME/.groundzero"
 BOOTSTRAP_READY="no"
 
 function get_platform() {
@@ -50,6 +50,8 @@ function main() {
 
   if [[ $BOOTSTRAP_READY == "yes" ]]; then
     git clone https://github.com/NonLogicalDev/GroundZERO $GZ_LOC;
+    cd $GZ_LOC && git checkout ansible
+    make -C ~/${GZ_LOC}/playbooks
   else
     echo "Error  | Bootstrap Failed"
   fi
