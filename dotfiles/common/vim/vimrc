@@ -9,6 +9,14 @@ set nocompatible
 " let &t_EI = "\<Esc>]1337;CursorShape=0\x7"
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+
+if filereadable("/usr/local/bin/python2")
+  let g:python_host_prog = '/usr/local/bin/python2'
+endif
+if filereadable("/usr/local/bin/python3")
+    let g:python3_host_prog = '/usr/local/bin/python3'
+endif
+
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "                            Initialising Plugins:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -62,6 +70,7 @@ Plug 'ClockworkNet/vim-junos-syntax'
 
 "Plug 'phildawes/racer',                  { 'do': 'cargo build --release' }
 Plug 'vim-ruby/vim-ruby',                 { 'for':'ruby'           }
+"Plug 'JuliaEditorSupport/julia-vim',      { 'for':'julia'          }
 
 " }}}
 " Colorschemes: {{{
@@ -824,6 +833,11 @@ let g:deoplete#sources#clang#clang_header = "/Users/olegutkin/.vim/plugged/YouCo
 " Flow: {{{
 
 autocmd BufRead *.js nnoremap <buffer> gd :FlowJumpToDef<CR>
+
+" }}}
+" Surround: {{{
+
+let g:surround_115 = "\1surround: \1\r\1\1""
 
 " }}}
 "                                Misc Settings:

@@ -4,6 +4,7 @@ brew 'wget'
 brew 'ack'
 brew 'vim'
 brew 'tree'
+brew 'fzf'
 
 # Usefull tools
 brew 'tmux'

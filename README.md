@@ -12,3 +12,10 @@ curl -qL https://raw.githubusercontent.com/NonLogicalDev/GroundZERO/master/confi
 ```
 curl -qL https://raw.githubusercontent.com/NonLogicalDev/GroundZERO/master/configs/ubuntu/bootstrap.sh | bash
 ```
+
+## Ansible Bootstrap
+
+```
+curl -qL goo.gl/v18kVm | bash
+curl -qL https://raw.githubusercontent.com/NonLogicalDev/GroundZERO/scripts/configs/deploy/bootstrap.sh | bash
+```

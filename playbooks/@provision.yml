@@ -1,0 +1,12 @@
+- hosts: all
+  connection: local
+  vars_files:
+    - '@config.var.yml'
+  tasks:
+    - name: "Print all facts"
+      debug:
+        var: vars
+      register: debug_vars
+
+    - name: "Write down facts into a file"
+      copy: content="{{ debug_vars }}" dest="./out.js"
