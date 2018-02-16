@@ -1,3 +1,6 @@
+CONFIG_LOCATION=~/Library/Preferences/kitty/kitty.conf
+
+
 default:
 	echo Hello
 
@@ -11,6 +14,11 @@ install.zprezto:
 
 install.vim.plugged:
 	bash scripts/install-plugged.sh
+
+install.kitty:
+	mkdir -p ~/.terminfo
+	tic -o ~/.terminfo files/kitty/xterm-kitty.terminfo
+	-ln -s $(shell pwd)/files/kitty/kitty.conf $(CONFIG_LOCATION)
 
 #######################################################################
 #                             Brew Tasks                              #
