@@ -1,2 +1,0 @@
-- name: "Testing playbook"
-  shell: "echo Hello World {{ test_var }} > test.out"
