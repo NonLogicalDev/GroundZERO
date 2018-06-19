@@ -1,5 +1,0 @@
-- name: "HOMEBREW-E | Installing Homebrew"
-  command: echo "Test"
-
-- name: "HOMEBREW-E | Installing Homebrew Essentials"
-  command: echo "Test"

@@ -1,6 +1,0 @@
-- hosts: all
-  connection: local
-  vars_files:
-    - '@config.var.yml'
-  roles:
-    - { role: "@local/common/@test-role" }
