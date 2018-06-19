@@ -1,29 +1,29 @@
+# My favourite text editor
+tap 'neovim/neovim'
+brew 'neovim'
+
 # Essential Utilities
-brew 'openssl'
-brew 'wget'
-brew 'ack'
+brew 'tmux'
 brew 'vim'
 brew 'tree'
 brew 'fzf'
+brew 'wget'
+brew 'ack'
+
+brew 'openssl'
 
 # Usefull tools
-brew 'tmux'
 brew 'ctags'
-brew 'imagemagick'
-
-# Languages
-brew 'objective-caml'
-brew 'leiningen'
 
 # Stupid stuff
 brew 'cowsay'
 brew 'fortune'
 
 # Source managers
-brew 'rbenv'
-brew 'nvm'
-brew 'jenv'
-brew 'pyenv-virtualenv'
+#brew 'rbenv'
+#brew 'nvm'
+#brew 'jenv'
+#brew 'pyenv-virtualenv'
 
 # My favourite text editor
 tap 'neovim/neovim'
@@ -32,3 +32,7 @@ brew 'neovim'
 # Vim Based Explorers
 brew 'vifm'
 brew 'tig'
+
+# My favourite text editor
+tap 'neovim/neovim'
+brew 'neovim'
