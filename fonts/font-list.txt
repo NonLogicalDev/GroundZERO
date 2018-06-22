@@ -1,0 +1,6 @@
+"Terminus/TerminusTTF-Italic-4.46.0.ttf"
+"Terminus/TerminusTTF-Bold Italic-4.46.0.ttf"
+"Terminus/TerminusTTF-Bold-4.46.0.ttf"
+"Terminus/TerminusTTF-4.46.0.ttf"
+"Dejavu/DejavuSansMonoNerdfont.ttf"
+"Unifont/unifont-11.0.01.ttf"
