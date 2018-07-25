@@ -1,5 +1,0 @@
-- name: "DEV | Installing zprezto"
-  command: echo "Test"
-
-- name: "DEV | Symlinking DotFiles"
-  command: echo "Test"
