@@ -1,3 +1,6 @@
 [submodule "scripts/dot"]
 	path = scripts/dot
 	url = https://github.com/NonLogicalDev/DotNinja.git
+[submodule "scripts/dotter"]
+	path = scripts/dotter
+	url = https://github.com/NonLogicalDev/nld.cli.dotter
