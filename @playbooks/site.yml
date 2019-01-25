@@ -1,4 +1,7 @@
 - hosts: all
   connection: local
-  roles:
-    - { role: "basics.macos" }
+  tasks:
+    - name: "(ROOT): Ensure /tmp/ansible directory exists."
+      file: path="/tmp/ansible" state=directory
+    - name: "(ROOT): INCLUDE | bootstrap role"
+      include_role: name="os_specific/{{ansible_system}}/00.bootstrap"

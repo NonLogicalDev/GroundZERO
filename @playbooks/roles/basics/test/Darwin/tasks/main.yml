@@ -1,0 +1,10 @@
+- name: "Print all facts"
+  debug:
+    var: vars
+  no_log: True
+  register: debug_vars
+
+- name: "Write down facts into a file"
+  copy: 
+    content: "{{ debug_vars }}" 
+    dest: /tmp/ansible-vars.json

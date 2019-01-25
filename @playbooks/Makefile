@@ -1,2 +1,2 @@
 provision:
-	ANSIBLE_STDOUT_CALLBACK=yaml ansible-playbook -v -i "localhost," site.yml
+	ANSIBLE_STDOUT_CALLBACK=yaml ../env/bin/ansible-playbook -v -i "localhost," site.yml
