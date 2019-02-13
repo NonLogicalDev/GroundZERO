@@ -4,3 +4,6 @@
 [submodule "scripts/dotter"]
 	path = scripts/dotter
 	url = https://github.com/NonLogicalDev/nld.cli.dotter
+[submodule "configs/dotfiles"]
+	path = configs/dotfiles
+	url = https://github.com/NonLogicalDev/nld.conf.dots
