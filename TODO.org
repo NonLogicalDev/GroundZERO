@@ -1,4 +1,0 @@
-* Improvemnet tasks
-  - [ ] Add the ability to touch files in the script, so that instead of
-        copying it will bootstrap the file, but never overwrite it unless say
-        given an '-o' flag
